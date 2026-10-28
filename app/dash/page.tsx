@@ -76,7 +76,6 @@ export default function DashSe() {
                     category: c,
                     price: Number(pri), // تأكد أن الأرقام تحول لـ Number إذا كانت مطلوبة كأرقام
                     duration: d,
-                    rating: Number(r),
                     image: i,
                     book: [{ book1: dd }],
                     userWhatsapp:ww,
@@ -107,7 +106,6 @@ export default function DashSe() {
                 <input type="text" placeholder="الفئة (Category)" onChange={(e) => setC(e.target.value)} required/>
                 <input type="number" placeholder="السعر (Price)" onChange={(e) => setPri(e.target.value)}required />
                 <input type="text" placeholder="المدة (Duration)" onChange={(e) => setD(e.target.value)}required />
-                <input type="number" placeholder="التقييم (Rating)" onChange={(e) => setR(e.target.value)} required/>
                 <input type="text" placeholder="رابط الصورة (Image)" onChange={(e) => setI(e.target.value)} required/>
                 <input type="date" placeholder="تاريخ الحجز (Book)" onChange={(e) => setDd(e.target.value)} />
                 <input type="text" placeholder="user wats app" onChange={(e) => setWw(e.target.value)}required />

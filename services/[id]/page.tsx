@@ -93,6 +93,8 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
 
       console.log(data.data)
       setTc1(data.data)
+    //   if(data.seccess){
+    // }
 
 
       console.log(data)
@@ -105,6 +107,7 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
 
   return (
     <div className="service-details-container">
+      kkkkkkkk
       {c.map((it: any) => (
         <div key={it._id} className="service-card">
 
@@ -188,7 +191,13 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
                 className="comment-input"
                 required
               />
-              <input type="number" onChange={(e: any) => { setNum(e.target.value) }} />
+             <div className="rating-group">
+  <label><input type="radio" name="rating" value="1"/><span>1</span></label>
+  <label><input type="radio" name="rating" value="2"/><span>2</span></label>
+  <label><input type="radio" name="rating" value="3"/><span>3</span></label>
+  <label><input type="radio" name="rating" value="4"/><span>4</span></label>
+  <label><input type="radio" name="rating" value="5"/><span>5</span></label>
+</div>
               <button type="submit" className="btn-comment">
                 Submit
               </button>
