@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server'
 
 const isBusinessRoute = createRouteMatcher([
   '/dash(.*)',
-  '/services(.*)',
 ])
 
 export default clerkMiddleware(async (auth, req) => {

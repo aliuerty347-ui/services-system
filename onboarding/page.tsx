@@ -39,8 +39,13 @@ export default function SelectRolePage() {
       // نمرر user.id مباشرة هنا
       await updateUserRole(user.id, role)
       alert('تم حفظ الدور بنجاح!')
+      if(role==='business'){
       router.push('/dash')
+      router.refresh()}
+      else{
+         router.push('/services')
       router.refresh()
+      }
     } catch (error: any) {
       console.error(error)
       alert(error.message || 'حدث خطأ ما')

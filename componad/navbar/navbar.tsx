@@ -9,10 +9,10 @@ export default function Navbar() {
     const router=useRouter()
     if (!isLoaded) return null;
 function j(){
-    router.push('http://localhost:3000/services')}
+    router.push('/services')}
     function r(){
 
-    router.push('http://localhost:3000/dash')
+    router.push('/dash')
 
     }
     return (

@@ -1,9 +1,9 @@
 import connectDB from "@/lib/db";
 import servicesCard from "@/models/services-card";
 import { Chathura } from "next/font/google";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req:NextResponse) {
+export async function GET(req:NextRequest) {
     try {
         await connectDB();
  
