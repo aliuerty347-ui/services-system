@@ -1,77 +1,76 @@
 "use client"
 import Link from 'next/link';
-import './home.css'; // استدعاء ملف الـ CSS المنفصل
+import './home.css';
 import { useState } from 'react';
-import '../../app/services/services.css'
+import '../../app/services/services.css';
 
 export default function HomePage() {
-  const[s,setS]=useState("")
-  const[sr,setSr]=useState([])
-  async function o(e:any) {
-    e.preventDefault()
-    try{
-    const res=await fetch(`/api/search?srr=${s}`);
-    const data=await res.json()
-    setSr(data.data)
-    console.log(data)}
-    catch(e:any){
-      console.log(e.message)
-    }
-  }
+  const [s, setS] = useState("");
+ 
+
+
+
   return (
-    <div className="home-container" dir="rtl">
-      {/* Header */}
-      
-
-      {/* Hero Section */}
+    <div className="home-container" dir="ltr">
+      {/* Hero Section with Rich Background & Elements */}
       <section className="hero-section">
-        <span className="badge">منصتك الأولى لحجز الاستشارات والخدمات</span>
-        <h1>احجز موعدك مع أفضل الخبراء <span>بكل سهولة وسرعة</span></h1>
-        <p>تصفح مئات الخدمات الاحترافية، اختر الوقت المناسب لك من التقويم، وأكد حجزك فوراً.</p>
-        <form onSubmit={o}>
-        <div className="search-box">
-          <input type="text" placeholder="ابحث عن خدمة، مبرمج، أو مدرب..." onChange={(e)=>{setS(e.target.value)}}/>
-          <button>بحث</button>
-        
-
-        </div>
-        </form>
-      </section>
-      
-      <div className="cards-grid">
-        {sr.map((it: any) => (
-          <div key={it._id} className="service-card">
-            <div className="card-image-wrapper">
-              <img 
-                src={it.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80"} 
-                alt={it.title} 
+        <div className="hero-backdrop"></div>
+        <div className="hero-content">
+          <span className="badge">
+            <span className="badge-dot"></span> #1 Platform for Expert Consultations
+          </span>
+          <h1>Find & Book Top Professionals <span className="highlight">Instantly</span></h1>
+          <p>Connect with verified developers, mentors, and consultants. Schedule meetings, pick convenient time slots, and grow your projects seamlessly.</p>
+          
+          <form>
+            <div className="search-box">
+              <input 
+                type="text" 
+                placeholder="Search for web development, UI/UX, database design..." 
+                onChange={(e) => setS(e.target.value)}
               />
-              <span className="card-category">{it.category}</span>
+             <Link href={`/services/s/${s}`}> <button type="submit">Explore Now</button></Link>
             </div>
+          </form>
 
-            <div className="card-content">
-              <div className="card-info-top">
-                <span className="provider-name">المزود: {it.provider}</span>
-                <span className="card-rating">⭐ {it.rating}</span>
-              </div>
+          {/* Quick Categories Tags to fill space and add life */}
+          <div className="quick-tags">
+            <span>our servrices:</span>
+            <button >Development</button>
+            <button >UI/UX Design</button>
+            <button >Marketing</button>
+            <button >Consulting</button>
+          </div>
 
-              <h3 className="card-title">{it.title}</h3>
-
-              <div className="card-footer">
-                <div className="card-meta">
-                  <span>⏱️ {it.duration}</span>
-                  <span className="card-price">${it.price}</span>
-                </div>
-
-                <Link href={`/services/${it._id}`} className="book-btn">
-                  احجز الآن
-                </Link>
-              </div>
+          {/* Trust Stats Bar */}
+          <div className="hero-stats">
+            <div className="stat-item">
+              <span className="stat-number">500+</span>
+              <span className="stat-label">Verified Experts</span>
+            </div>
+            <div className="stat-divider"></div>
+            <div className="stat-item">
+              <span className="stat-number">15,000+</span>
+              <span className="stat-label">Sessions Booked</span>
+            </div>
+            <div className="stat-divider"></div>
+            <div className="stat-item">
+              <span className="stat-number">4.9/5</span>
+              <span className="stat-label">User Rating</span>
             </div>
           </div>
-        ))}
+        </div>
+      </section>
+
+      {/* Cards Grid Section */}
+      <div className="cards-grid-section">
+        <div className="section-header">
+          <h2>Featured Services</h2>
+          <p>Hand-picked professional services ready for immediate booking</p>
+        </div>
+
+       
       </div>
     </div>
-
   );
 }

@@ -10,10 +10,13 @@ nav {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
   width: 100%;
   box-sizing: border-box;
+  margin: 0px;
 }
 
 /* اللوجو أو اسم الموقع */
 nav > div:first-child {
+
+  
   font-weight: 700;
   font-size: 18px;
   color: #1e293b;
@@ -24,7 +27,7 @@ nav .nav-links, nav div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 8px;
   width: 100%;
@@ -32,9 +35,11 @@ nav .nav-links, nav div {
 
 /* تنسيق روابط/أزرار التنقل الرئيسية (services & create services) */
 .btn-serv {
-  background-color: #f1f5f9;
+  background-color: #f6f6f6;
   color: #334155;
-  border: 1px solid #cbd5e1;
+  /* border: 1px solid #cbd5e1; */
+  border: none;
+
   font-family: inherit;
   font-size: 0.8rem;
   font-weight: 600;

@@ -6,13 +6,14 @@ import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const { isSignedIn, isLoaded } = useAuth();
-    const router=useRouter()
+    const router = useRouter()
     if (!isLoaded) return null;
-function j(){
-    router.push('/services')}
-    function r(){
+    function j() {
+        router.push('/services')
+    }
+    function r() {
 
-    router.push('/dash')
+        router.push('/dash')
 
     }
     return (
@@ -22,8 +23,7 @@ function j(){
             </div>
             <div>
 
-               <button className='btn-serv' onClick={j}>services</button>
-               <button className='btn-serv' onClick={r}> create services</button> 
+
                 {!isSignedIn ? (<>
                     <SignInButton >
                         <button className="SignInButton">Sign in</button>
@@ -34,8 +34,11 @@ function j(){
                 </>
 
 
-                ) : (
+                ) : (<>
+                    <button className='btn-serv' onClick={j}>services</button>
+                    <button className='btn-serv' onClick={r}> create services</button>
                     <UserButton />
+                </>
                 )}
             </div>
         </nav>

@@ -19,7 +19,8 @@ export async function POST(request:any) {
         await connectDB();
         const body= await request.json()
         const data=await servicesCard.create(body)
-        return NextResponse.json({ success: true, data: data })
+        const data1 = await servicesCard.find()
+        return NextResponse.json({ success: true, data: data1})
   }catch (e: any) {
         return NextResponse.json({ success: false, error: e.message })
     }

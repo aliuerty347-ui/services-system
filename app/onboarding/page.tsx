@@ -4,7 +4,7 @@ import { useUser } from '@clerk/nextjs'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { updateUserRole } from '@/actions/update-role' // اضبط المسار حسب مشروعك
-
+import "./on.css"
 export default function SelectRolePage() {
   const { user, isLoaded, isSignedIn } = useUser()
   const [loading, setLoading] = useState(false)
@@ -39,6 +39,7 @@ export default function SelectRolePage() {
       // نمرر user.id مباشرة هنا
       await updateUserRole(user.id, role)
       alert('تم حفظ الدور بنجاح!')
+  
       router.push('/dash')
       router.refresh()
     } catch (error: any) {
@@ -56,16 +57,28 @@ export default function SelectRolePage() {
   };
 
   return (
-    <div style={{ padding: '40px', textAlign: 'center' }}>
-      <h2>اختر نوع الحساب</h2>
-      <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', marginTop: '20px' }}>
-        <button disabled={loading} onClick={() => handleSelectRole('business')}>
-          حساب أعمال (Business)
-        </button>
-        <button disabled={loading} onClick={() => handleSelectRole('user')}>
-          مستخدم عادي (User)
-        </button>
+    <div className="role-container">
+      <div className="role-card">
+        <h2 className="role-title">Select Account Type</h2>
+        
+        <div className="role-buttons">
+          <button
+            disabled={loading}
+            onClick={() => handleSelectRole('business')}
+            className="btn-business"
+          >
+           Business Account(Business)
+          </button>
+          
+          <button
+            disabled={loading}
+            onClick={() => handleSelectRole('user')}
+            className="btn-user"
+          >
+           Standard User(User)
+          </button>
+        </div>
       </div>
     </div>
-  )
+  );
 }
