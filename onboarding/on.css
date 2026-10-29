@@ -1,0 +1,71 @@
+/* app/globals.css */
+
+.role-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 1rem;
+}
+
+.role-card {
+  max-width: 28rem;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid #f3f4f6;
+}
+
+.role-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.role-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-business {
+  flex: 1;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-business:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-user {
+  flex: 1;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75olar;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-user:hover {
+  background-color: #e5e7eb;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

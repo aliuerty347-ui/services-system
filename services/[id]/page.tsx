@@ -83,16 +83,16 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
         body: JSON.stringify({
           commentText: tc,
           id: serviceId,
-          rate: num,
+          rate: num||1,
           userSub: user?.fullName || user?.username || "Anonymous",
 
         })
 
       })
       const data = await res.json()
-
       console.log(data.data)
       setTc1(data.data)
+      refresh.refresh()
 
 
       console.log(data)
@@ -188,7 +188,15 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
                 className="comment-input"
                 required
               />
-              <input type="number" onChange={(e: any) => { setNum(e.target.value) }} />
+              
+               <div className="rating-group"> 
+                How many start ?
+  <label><input type="radio" name="rating" value="1" onChange={(e: any) => { setNum(e.target.value) }}/><span>1</span></label>
+  <label><input type="radio" name="rating" value="2" onChange={(e: any) => { setNum(e.target.value) }}/><span>2</span></label>
+  <label><input type="radio" name="rating" value="3" onChange={(e: any) => { setNum(e.target.value) }}/><span>3</span></label>
+  <label><input type="radio" name="rating" value="4" onChange={(e: any) => { setNum(e.target.value) }}/><span>4</span></label>
+  <label><input type="radio" name="rating" value="5" onChange={(e: any) => { setNum(e.target.value) }}/><span>5</span></label>
+</div>
               <button type="submit" className="btn-comment">
                 Submit
               </button>

@@ -18,7 +18,8 @@ export default function DashSe() {
     const [r, setR] = useState("")
     const [i, setI] = useState("")
     const [ww, setWw] = useState("")
-    const [fa, setFa] = useState(false)
+    const [lod, setLod] = useState(true)
+    const [lod1, setLod1] = useState(true)
     const [sp, setSp] = useState([])
     useEffect(() => {
         // تأكد أولاً أن بيانات المستخدم تم جلبها
@@ -34,27 +35,30 @@ export default function DashSe() {
     }, [user, router]);
     useEffect(() => {
         console.log("قيمة sp الجديدة هي:", sp);
+        console.log("قيمة sp الجديدة هي:", sp);
     }, [sp]);
     useEffect(() => {
 
 
         async function fetchData() {
             try {
-
+                setLod1(false)
                 if (user?.id) {
                     console.log(user?.id)
                     const res = await fetch(`/api/serPro?id=${user?.id}`);
                     const data = await res.json();
-                    // نضع البيانات داخل مصفوفة لضمان عمل الـ map لاحقاً، أو نتحقق إن كانت مصفوفة أصلاً
                     const ru = await data.data
                     setSp(ru);
 
-                    console.log(data.data)
+                    console.log(data)
                     console.log(ru)
 
                 }
             } catch (error) {
                 console.log("Error fetching services:", error);
+            } finally {
+                setLod1(true)
+
             }
         }
         fetchData();
@@ -63,7 +67,7 @@ export default function DashSe() {
     async function o(e: any) {
         e.preventDefault()
         try {
-
+            setLod(false)
             console.log(user?.fullName || user?.username || "Anonymous")
             const res = await fetch('/api/services-card', {
                 method: 'POST',
@@ -76,10 +80,9 @@ export default function DashSe() {
                     category: c,
                     price: Number(pri), // تأكد أن الأرقام تحول لـ Number إذا كانت مطلوبة كأرقام
                     duration: d,
-                    rating: Number(r),
                     image: i,
                     book: [{ book1: dd }],
-                    userWhatsapp:ww,
+                    userWhatsapp: ww,
                 })// 👈 تعديل هنا ليتوافق مع المصفوفة والكائن في الـ Schema
 
             })
@@ -89,37 +92,44 @@ export default function DashSe() {
             console.log(data)
             console.log(data.data)
             const tq = await data.data
-            // setSp(tq)
+            console.log(tq)
+            console.log(sp)
+            console.log(data)
+            router.refresh()
         }
         catch (e) {
             console.log(e)
+        } finally {
+            setLod(true)
+
+
         }
     }
 
 
     return (<>
         <div className="dash-container">
-           
+
 
             <form onSubmit={o} className="dash-form">
-                <input type="text"  placeholder="العنوان (Title)" onChange={(e) => setT(e.target.value)}  required/>
-                <input type="text" placeholder="المزود (Provider)" onChange={(e) => setPro(e.target.value)}required />
-                <input type="text" placeholder="الفئة (Category)" onChange={(e) => setC(e.target.value)} required/>
-                <input type="number" placeholder="السعر (Price)" onChange={(e) => setPri(e.target.value)}required />
-                <input type="text" placeholder="المدة (Duration)" onChange={(e) => setD(e.target.value)}required />
-                <input type="number" placeholder="التقييم (Rating)" onChange={(e) => setR(e.target.value)} required/>
-                <input type="text" placeholder="رابط الصورة (Image)" onChange={(e) => setI(e.target.value)} required/>
-                <input type="date" placeholder="تاريخ الحجز (Book)" onChange={(e) => setDd(e.target.value)} />
-                <input type="text" placeholder="user wats app" onChange={(e) => setWw(e.target.value)}required />
-                <button type="submit">إرسال البيانات</button>
+                <input type="text" placeholder="Title" onChange={(e) => setT(e.target.value)} required />
+                <input type="text" placeholder=" Provider" onChange={(e) => setPro(e.target.value)} required />
+                <input type="text" placeholder=" Category" onChange={(e) => setC(e.target.value)} required />
+                <input type="number" placeholder=" Price" onChange={(e) => setPri(e.target.value)} required />
+                <input type="text" placeholder=" Duration" onChange={(e) => setD(e.target.value)} required />
+                <input type="text" placeholder=" Image url" onChange={(e) => setI(e.target.value)} required />
+                <input type="date" placeholder="Book" onChange={(e) => setDd(e.target.value)} />
+                <input type="text" placeholder="user Telgram" onChange={(e) => setWw(e.target.value)} required />
+                <button type="submit">{lod ? <>Send Data</> : <>Sending data...</>}</button>
             </form>
         </div>
         <div className="services-container" dir="rtl">
             <div className="services-header">
-               <h2>your services</h2>
+                <h2>your services</h2>
             </div>
 
-            <div className="cards-grid">
+
+            {lod1 ? <div className="cards-grid">
                 {sp.map((it: any) => (
                     <div key={it._id} className="service-card">
                         <div className="card-image-wrapper">
@@ -132,7 +142,7 @@ export default function DashSe() {
 
                         <div className="card-content">
                             <div className="card-info-top">
-                                <span className="provider-name">المزود: {it.provider}</span>
+                                <span className="provider-name">provider: {it.provider}</span>
                                 <span className="card-rating">⭐ {it.rating}</span>
                             </div>
 
@@ -145,13 +155,17 @@ export default function DashSe() {
                                 </div>
 
                                 <Link href={`/services/${it._id}`} className="book-btn">
-                                    معلومات اكثر
+                                    Book Now
                                 </Link>
                             </div>
                         </div>
                     </div>
                 ))}
-            </div>
+            </div> :
+                <><div className="l">
+                    <div className="spinner"></div>
+                </div>
+                </>}
 
         </div>
     </>
