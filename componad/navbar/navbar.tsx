@@ -18,9 +18,9 @@ export default function Navbar() {
     }
     return (
         <nav>
-            <div>
+            <span className='logo'>
                 Services System
-            </div>
+            </span>
             <div>
 
 
@@ -35,9 +35,10 @@ export default function Navbar() {
 
 
                 ) : (<>
+                <div className='d'>
                     <button className='btn-serv' onClick={j}>services</button>
                     <button className='btn-serv' onClick={r}> create services</button>
-                    <UserButton />
+                    <UserButton /></div>
                 </>
                 )}
             </div>
