@@ -1,9 +1,9 @@
 import connectDB from "@/lib/db";
 import ServicesCard from "@/models/services-card";
 import { NEXT_BODY_SUFFIX } from "next/dist/lib/constants";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextResponse) {
+export async function GET(req: NextRequest) {
     try {
         await connectDB();
         const { searchParams } = new URL(req.url)
@@ -14,18 +14,7 @@ export async function GET(req: NextResponse) {
         return NextResponse.json({ success: false, error: e.message }, { status: 500 })
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-export async function POST(req: NextResponse) {
+export async function POST(req: NextRequest) {
 try{
     
         const body= await req.json()
@@ -76,49 +65,3 @@ return NextResponse.json({seccess:false,error:e.message})
 
 
 
-
-
-// export async function POST(req: NextResponse) {
-// try{
-    
-//         const body= await req.json()
-//         await connectDB();
-       
-     
-            
-      
-           
-       
-
-//         const data1 = await ServicesCard.findOne({
-//             _id: body.id,
-//             "book.book1":body.datee})
-//         if(data1){
-//         return NextResponse.json({seccess:false,mes:"محجوز"})
-
-//         }
-           
-       
-//         const data = await ServicesCard.findOneAndUpdate(
-//             {_id: body.id},
-//         {
-//         $push:{
-//             book:{
-//                 book1:body.datee,
-//                 createdAt:new Date()
-//             }
-//         }
-//     } ,
-//     { returnDocument: 'after' }
-//         )
-//         return NextResponse.json({seccess:true,data:data})
-  
-
-
-// }
-// catch(e:any){
-// return NextResponse.json({seccess:false,error:e.message})
-
-// }
-
-// }

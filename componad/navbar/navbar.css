@@ -1,0 +1,147 @@
+/* ==========================================
+   تصميم الشريط العلوي العصري (Navbar) - عام للموبايل
+   ========================================== */
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+/* اللوجو أو اسم الموقع */
+nav > div:first-child {
+  font-weight: 800;
+  font-size: 20px;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* حاوية الروابط والأزرار (عند تسجيل الدخول أو الخروج) */
+nav div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ==========================================
+   تنسيق الأزرار (Services & Create Services)
+   ========================================== */
+.btn-serv {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+  transition: all 0.25s ease;
+}
+
+.btn-serv:hover {
+  background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-serv:active {
+  transform: translateY(0);
+}
+
+/* ==========================================
+   أزرار المصادقة (Sign in / Sign up)
+   ========================================== */
+.SignInButton {
+  background-color: transparent;
+  color: #4f46e5;
+  border: 1.5px solid #e0e7ff;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.SignInButton:hover {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.SignUpButton {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+  transition: all 0.25s ease;
+}
+
+.SignUpButton:hover {
+  background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.35);
+  transform: translateY(-1px);
+}
+
+/* حاوية صورة البروفايل (UserButton) */
+.cl-userButtonBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+/* ==========================================
+   شاشات اللابتوب والتابلت (Desktop Layout)
+   ========================================== */
+@media (min-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 40px;
+  }
+
+  nav > div:first-child {
+    font-size: 22px;
+  }
+
+  /* الحاوية الداخلية للأزرار تأخذ المساحة المناسبة بدون تمدد عشوائي */
+  nav div {
+    width: auto;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  .btn-serv,
+  .SignInButton,
+  .SignUpButton {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}

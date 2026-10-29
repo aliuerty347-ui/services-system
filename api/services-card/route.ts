@@ -1,9 +1,9 @@
 import connectDB from "@/lib/db";
 import servicesCard from "@/models/services-card";
 import { Chathura } from "next/font/google";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req:NextResponse) {
+export async function GET(req:NextRequest) {
     try {
         await connectDB();
  
@@ -19,7 +19,8 @@ export async function POST(request:any) {
         await connectDB();
         const body= await request.json()
         const data=await servicesCard.create(body)
-        return NextResponse.json({ success: true, data: data })
+        const data1 = await servicesCard.find()
+        return NextResponse.json({ success: true, data: data1})
   }catch (e: any) {
         return NextResponse.json({ success: false, error: e.message })
     }

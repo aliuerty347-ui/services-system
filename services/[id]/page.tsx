@@ -83,7 +83,7 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
         body: JSON.stringify({
           commentText: tc,
           id: serviceId,
-          rate: num||1,
+          rate: num || 1,
           userSub: user?.fullName || user?.username || "Anonymous",
 
         })
@@ -92,7 +92,12 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
       const data = await res.json()
       console.log(data.data)
       setTc1(data.data)
+
       refresh.refresh()
+
+      //   if(data.seccess){
+      // }
+
 
 
       console.log(data)
@@ -105,6 +110,7 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
 
   return (
     <div className="service-details-container">
+      kkkkkkkk
       {c.map((it: any) => (
         <div key={it._id} className="service-card">
 
@@ -124,18 +130,18 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
             <div className="service-price-box">
               <span className="price-amount">${it.price}</span>
             </div>
-          
+
           </div>
-{it?.userWhatsapp && (
-  <a
-    href={`https://t.me/${String(it.userWhatsapp).replace(/^@/, '')}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="whatsapp-btn"
-  >
-    💬 تواصل عبر التليجرام
-  </a>
-)}
+          {it?.userWhatsapp && (
+            <a
+              href={`https://t.me/${String(it.userWhatsapp).replace(/^@/, '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-btn"
+            >
+              💬 تواصل عبر التليجرام
+            </a>
+          )}
 
           {/* Booking Section */}
           <div className="booking-section">
@@ -188,18 +194,19 @@ export default function ServiceDetails({ params }: { params: Promise<{ id: strin
                 className="comment-input"
                 required
               />
-              
-               <div className="rating-group"> 
+
+              <div className="rating-group">
                 How many start ?
-  <label><input type="radio" name="rating" value="1" onChange={(e: any) => { setNum(e.target.value) }}/><span>1</span></label>
-  <label><input type="radio" name="rating" value="2" onChange={(e: any) => { setNum(e.target.value) }}/><span>2</span></label>
-  <label><input type="radio" name="rating" value="3" onChange={(e: any) => { setNum(e.target.value) }}/><span>3</span></label>
-  <label><input type="radio" name="rating" value="4" onChange={(e: any) => { setNum(e.target.value) }}/><span>4</span></label>
-  <label><input type="radio" name="rating" value="5" onChange={(e: any) => { setNum(e.target.value) }}/><span>5</span></label>
-</div>
-              <button type="submit" className="btn-comment">
-                Submit
-              </button>
+                <label><input type="radio" name="rating" value="1" onChange={(e: any) => { setNum(e.target.value) }} /><span>1</span></label>
+                <label><input type="radio" name="rating" value="2" onChange={(e: any) => { setNum(e.target.value) }} /><span>2</span></label>
+                <label><input type="radio" name="rating" value="3" onChange={(e: any) => { setNum(e.target.value) }} /><span>3</span></label>
+                <label><input type="radio" name="rating" value="4" onChange={(e: any) => { setNum(e.target.value) }} /><span>4</span></label>
+                <label><input type="radio" name="rating" value="5" onChange={(e: any) => { setNum(e.target.value) }} /><span>5</span></label>
+
+          </div>
+                <button type="submit" className="btn-comment">
+                  Submit
+                </button>
             </form>
           </div>
 
