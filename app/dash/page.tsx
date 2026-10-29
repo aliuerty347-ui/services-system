@@ -101,6 +101,14 @@ export default function DashSe() {
             console.log(e)
         } finally {
             setLod(true)
+            setT("")
+            setPro("")
+            setC("")
+            setPri("")
+            setD("")
+            setI("")
+            setDd("")
+            setWw("")
 
 
         }
@@ -112,14 +120,14 @@ export default function DashSe() {
 
 
             <form onSubmit={o} className="dash-form">
-                <input type="text" placeholder="Title" onChange={(e) => setT(e.target.value)} required />
-                <input type="text" placeholder=" Provider" onChange={(e) => setPro(e.target.value)} required />
-                <input type="text" placeholder=" Category" onChange={(e) => setC(e.target.value)} required />
-                <input type="number" placeholder=" Price" onChange={(e) => setPri(e.target.value)} required />
-                <input type="text" placeholder=" Duration" onChange={(e) => setD(e.target.value)} required />
-                <input type="text" placeholder=" Image url" onChange={(e) => setI(e.target.value)} required />
-                <input type="date" placeholder="Book" onChange={(e) => setDd(e.target.value)} />
-                <input type="text" placeholder="user Telgram" onChange={(e) => setWw(e.target.value)} required />
+                <input type="text" placeholder="Title" value={t} onChange={(e) => setT(e.target.value)} required />
+                <input type="text" placeholder=" Provider" value={pro} onChange={(e) => setPro(e.target.value)} required />
+                <input type="text" placeholder=" Category" value={c} onChange={(e) => setC(e.target.value)} required />
+                <input type="number" placeholder=" Price" value={pri}onChange={(e) => setPri(e.target.value)} required />
+                <input type="text" placeholder=" Duration" value={d} onChange={(e) => setD(e.target.value)} required />
+                <input type="text" placeholder=" Image url" value={i} onChange={(e) => setI(e.target.value)} required />
+                <input type="date" placeholder="Book" value={dd} onChange={(e) => setDd(e.target.value)} />
+                <input type="text" placeholder="user Telgram" value={ww} onChange={(e) => setWw(e.target.value)} required />
                 <button type="submit">{lod ? <>Send Data</> : <>Sending data...</>}</button>
             </form>
         </div>
