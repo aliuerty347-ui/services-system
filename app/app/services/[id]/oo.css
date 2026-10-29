@@ -1,0 +1,291 @@
+/* Container & Direction */
+.service-details-container {
+  max-width: 850px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 12px; /* تقليل البادينغ ليتناسب مع الموبايل */
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px; /* بادينغ مريح للموبايل */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* لمنع أي عنصر من الخروج عن حدود البطاقة */
+}
+
+/* Service Header */
+.service-header {
+  display: flex;
+  flex-direction: column; /* ترتيب عمودي للموبايل افتراضياً */
+  gap: 15px;
+  justify-content: space-between;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.service-title {
+  font-size: 22px;
+  color: #1e293b;
+  margin: 0 0 6px 0;
+  word-break: break-word;
+}
+
+.service-provider {
+  color: #64748b;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.service-provider span {
+  font-weight: 600;
+  color: #334155;
+}
+
+.service-meta {
+  display: flex;
+  flex-wrap: wrap; /* للسماح للعناصر بالنزول لسطر جديد بالموبايل */
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.badge-category {
+  background-color: #eff6ff;
+  color: #2563eb;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.meta-item {
+  color: #475569;
+}
+
+.meta-rating {
+  color: #d97706;
+  font-weight: bold;
+}
+
+.service-price-box {
+  align-self: flex-start;
+}
+
+.price-amount {
+  font-size: 26px;
+  font-weight: 800;
+  color: #16a34a;
+}
+
+/* Booking Section */
+.booking-section {
+  background-color: #f8fafc;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 16px;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column; /* عمودي بالموبايل */
+  gap: 10px;
+  width: 100%;
+}
+
+.date-input, .comment-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.date-input:focus, .comment-input:focus {
+  border-color: #2563eb;
+}
+
+.btn-book {
+  width: 100%; /* الزر يأخذ العرض كامل بالموبايل */
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-book:hover {
+  background-color: #1d4ed8;
+}
+
+/* Booked Dates & Reviews */
+.booked-dates-section, .add-comment-section, .reviews-section {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.sub-title {
+  font-size: 15px;
+  margin: 0 0 10px 0;
+}
+
+.booked-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.booked-item {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Comments */
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-comment {
+  background-color: #16a34a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.2s;
+}
+
+.btn-comment:hover {
+  background-color: #15803d;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-card {
+  background-color: #f8fafc;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #f1f5f9;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #334155;
+  margin: 0 0 4px 0;
+  font-size: 13px;
+}
+
+.comment-text {
+  color: #475569;
+  margin: 0;
+  font-size: 13px;
+}
+
+.empty-msg {
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.booked {
+  color: red;
+}
+
+/* Telegram / Whatsapp Button */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #229ed9; /* لون التليجرام الجذاب */
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%; /* العرض كامل للموبايل */
+  box-sizing: border-box;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1d87b9;
+}
+
+/* ===================================================
+   Media Query: للابتوب للشاشات الأكبر من (640px)
+   =================================================== */
+@media (min-width: 640px) {
+  .service-details-container {
+    padding: 0 15px;
+  }
+
+  .service-card {
+    padding: 25px;
+  }
+
+  .service-header {
+    flex-direction: row; /* إرجاع الهيدر بجانب بعض للابتوب */
+    align-items: flex-start;
+  }
+
+  .service-title {
+    font-size: 26px;
+  }
+
+  .price-amount {
+    font-size: 32px;
+  }
+
+  .booking-form {
+    flex-direction: row; /* حقول الحجز بجانب بعض للابتوب */
+  }
+
+  .btn-book {
+    width: auto;
+  }
+
+  .comment-form {
+    flex-direction: row;
+  }
+
+  .whatsapp-btn {
+    width: fit-content; /* حجم متناسق للزر للابتوب */
+  }
+}

@@ -16,14 +16,19 @@ nav {
 }
 
 /* اللوجو أو اسم الموقع */
-nav > div:first-child {
-  font-weight: 800;
-  font-size: 20px;
-  color: #0f172a;
-  letter-spacing: -0.025em;
+nav > span:first-child {
+ font-weight: 900;
+  font-size: 23px;
+  background: linear-gradient(135deg, #0f172a 0%, #4f46e5 100%);
+  background-clip: text; /* أضفنا هذه الخاصية القياسية لإزالة التنبيه */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.04em;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 /* حاوية الروابط والأزرار (عند تسجيل الدخول أو الخروج) */
